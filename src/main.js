@@ -4,6 +4,13 @@ import VueResource from 'vue-resource';
 import VueRouter from 'vue-router';
 import router from './routes';
 import store from './store/store';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faShoppingCart, faRubleSign, faTimes} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+library.add(faShoppingCart, faRubleSign, faTimes);
+Vue.component('font-awesome-icon', FontAwesomeIcon);
+Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
