@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="container">
 		<h1>Отзывы</h1>
 		<p>Тут вы можете оставить свой отзыв</p>
 		<form 

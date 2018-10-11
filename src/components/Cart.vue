@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="container">
 		<h1>Корзина</h1>
 		<div v-if="cartItems.length">
 			<ul>
@@ -63,7 +63,7 @@
 	.cart__btn-remove
 		border: none
 		border-radius: 50%
-		background-color: blue
+		background-color: #7C7A7A
 		color: #fff
 		width: 25px
 		height: 25px
@@ -76,7 +76,7 @@
 		width: 100%
 		padding: 10px 20px
 		border: none
-		background-color: blue
+		background-color: #7C7A7A
 		color: #fff
 		cursor: pointer
 	.cart__empty

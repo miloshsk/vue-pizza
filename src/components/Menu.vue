@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="container">
 		<h1>Меню</h1>
 		<ul class="products">
 			<li v-for="product in products" class="product">
@@ -51,18 +51,15 @@
 
 <style lang="sass">
 	@import url('https://fonts.googleapis.com/css?family=Merriweather|Montserra')
-
 	.products
-		display: flex
-		flex-wrap: wrap
-		width: 1200px
-		margin: 0 auto
+		margin-left: -20px
 	.product
 		width: 20%
-		margin-bottom: 25px
+		display: inline-block
+		margin-bottom: 20px
 	.product__item
-		width: 220px
 		padding: 10px
+		margin-left: 20px
 		border-radius: 5px
 		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3)
 	.product__title
@@ -73,10 +70,12 @@
 	.product__cost
 		font-family: 'Montserrat', sans-serif
 		font-weight: 600
+		font-size: 18px
 	.fa-ruble-sign	
 		font-size: 14px
 	.product__img
 		width: 100%	
+		height: auto
 	.product__order-btn
 		font-size: 18px
 		margin-top: 10px
@@ -84,6 +83,25 @@
 		border: none
 		padding: 10px
 		color: #fff
-		background-color: blue
+		background-color: #7C7A7A
 		cursor: pointer
+	@media screen and 	(max-width: 1024px)
+		.product 
+			width: 25%
+	@media screen and 	(max-width: 780px)
+		.product
+			width: 33%
+	@media screen and 	(max-width: 585px)
+		.product__title
+			font-size: 18px
+		.product__cost
+			font-size: 14px
+		.fa-ruble-sign
+			font-size: 12px
+		.product__order-btn
+			font-size: 16px
+			margin-top: 5px
+	@media screen and 	(max-width: 585px)
+		.product
+			width: 50%
 </style>

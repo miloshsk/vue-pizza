@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import Nav from './components/Nav.vue';
 import Home from './components/Home.vue';
+import Nav from './components/Nav.vue';
 export default {
   components: {
-    appNav: Nav,
-    appHome: Home
+    appHome: Home,
+    appNav: Nav
   }
 }
 </script>
@@ -23,4 +23,9 @@ export default {
     list-style-type: none
     padding: 0
     margin: 0
+  .container
+    max-width: 1400px
+    width: 100%
+    padding: 0 10px
+    margin: 0 auto
 </style>
