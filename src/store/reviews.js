@@ -1,5 +1,12 @@
 import Vue from 'vue';
 
+class Review {
+	constructor(user, text) {
+		this.userName = user
+		this.reviewText = text
+	}
+}
+
 export default {
 	state: {
 		reviews: []
@@ -11,10 +18,10 @@ export default {
 	},
 	mutations: {
 		updateReviews(state, data) {
-			state.reviews = data
+			state.reviews = data;
 		},
 		addNewReview(state, data) {
-			state.reviews.push(data)
+			state.reviews.push(data);
 		}
 	},
 	actions: {

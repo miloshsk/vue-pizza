@@ -7,7 +7,6 @@
 			@submit.prevent="sendReview">
 			<div class="review__form-item">
 				<input 
-					@input="isValidForm"
 					v-model="review.userName"
 					type="text" 
 					placeholder="Имя" 
@@ -16,7 +15,6 @@
 			</div>
 			<div class="review__form-item">
 				<textarea 
-					@input="isValidForm"
 					v-model="review.reviewText"
 					placeholder="Отзыв"
 					id="review-text" 
@@ -28,7 +26,7 @@
 			<input 
 				type="submit" 
 				class="review__form-btn" 
-				:disabled="formReady">
+				:disabled="!formReady">
 		</form>
 		<ul>
 			<li v-for="item in reviews" class="review__item">
@@ -59,7 +57,15 @@
 				}
 			},
 			sendReview() {
-				this.$store.dispatch('postReview',this.review)
+				const review = {
+					userName: this.review.userName,
+					reviewText: this.review.reviewText
+				}
+				this.$store.dispatch('postReview', review)
+					.then( () => {
+						this.review.userName = '';
+						this.review.reviewText = '';
+					})
 			}
 		},
 		computed: {
