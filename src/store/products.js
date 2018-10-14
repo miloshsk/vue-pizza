@@ -2,16 +2,29 @@ import Vue from 'vue';
 
 export default {
 	state: {
-		products: []
+		products: [],
+		sorted: []
 	},
 	getters: {
 		getProducts(state) {
-			return state.products
+			return state.sorted;
 		}
 	},
 	mutations: {
 		updateProducts(state, data) {
-			state.products = data
+			state.products = data;
+		},
+		updateSorted(state) {
+			state.sorted = state.products;
+		},
+		sortByPrice(state) {
+			state.sorted = state.products.filter((elem) => {
+				for(let i = 0; i < state.products.length; i++) {
+					if(elem.cost < 500) {
+						return elem;
+					}
+				}
+			})
 		}
 	},
 	actions: {
@@ -21,8 +34,9 @@ export default {
 					return res.json()
 				})
 				.then( data => {
-					commit('updateProducts', data)
-				});
+					commit('updateProducts', data);
+					commit('updateSorted',);
+				})
 		}
 	}
 }

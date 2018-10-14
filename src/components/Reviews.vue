@@ -8,6 +8,7 @@
 			<div class="review__form-item">
 				<input 
 					v-model="review.userName"
+					@input="isValidForm"
 					type="text" 
 					placeholder="Имя" 
 					id="review__form-name"
@@ -16,6 +17,7 @@
 			<div class="review__form-item">
 				<textarea 
 					v-model="review.reviewText"
+					@input="isValidForm"
 					placeholder="Отзыв"
 					id="review-text" 
 					cols="30" 
@@ -26,7 +28,7 @@
 			<input 
 				type="submit" 
 				class="review__form-btn" 
-				:disabled="!formReady">
+				:disabled="formReady">
 		</form>
 		<ul>
 			<li v-for="item in reviews" class="review__item">

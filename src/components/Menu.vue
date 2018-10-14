@@ -1,6 +1,11 @@
 <template>
 	<div class="container">
 		<h1>Меню</h1>
+		<label class="products__sort">Показать пиццу дешевле 500 
+			<input type="checkbox" 
+					v-model="sorted"
+					@change="sortPizzaByPrice">
+		</label>
 		<ul class="products">
 			<li v-for="product in products" class="product">
 				<div class="product__item">
@@ -19,7 +24,6 @@
 						<font-awesome-icon icon="shopping-cart" />
 						В корзину
 					</button>
-
 				</div>
 			</li>
 		</ul>
@@ -28,14 +32,26 @@
 
 <script>
 	export default {
+		data() {
+			return {
+				sorted: false
+			}
+		},
 		methods: {
 			addToCart(product) {
 				this.$store.commit('updateCart', product);
+			},
+			sortPizzaByPrice() {
+				if(this.sorted) {
+					this.$store.commit('sortByPrice');
+				} else {
+					this.$store.commit('updateSorted');
+				}
 			}
 		},
 		computed: {
 			products() {
-				return this.$store.getters.getProducts
+				return this.$store.getters.getProducts;
 			}
 		},
  		beforeCreate() {
@@ -51,8 +67,13 @@
 
 <style lang="sass">
 	@import url('https://fonts.googleapis.com/css?family=Merriweather|Montserra')
+	.products__sort
+		font-family: 'Merriweather', serif
+		font-size: 18px
+		cursor: pointer
 	.products
 		margin-left: -20px
+		margin-top: 20px
 	.product
 		width: 20%
 		display: inline-block
