@@ -10,16 +10,15 @@
 							{{item.cost}}
 							<font-awesome-icon icon="ruble-sign" />
 						</span>
-						<button 
-							class="cart__btn-remove"
-							@click="removeCartItem(index)">
-								<font-awesome-icon icon="times" />
-							</button>
+						<button @click="removeItemFromCart(index)">-</button>
+						<span>{{item.quantity}}</span>
+						<button @click="addItemToCart(item)">+</button>
 					</div>
 				</li>
 			</ul>
 			<p class="cart__total">Общая сумма: {{result}}</p>
-			<button class="cart__btn-order">Заказать</button>
+			<button 
+				class="cart__btn-order">Заказать</button>
 		</div>
 		<p v-else class="cart__empty">Корзина пуста</p>
 	</div>
@@ -36,9 +35,12 @@
 			}
 		},
 		methods: {
-			removeCartItem(index) {
+			addItemToCart(item) {
+				this.$store.commit('updateCart', item);
+			},
+			removeItemFromCart(index) {
 				this.$store.commit('removeCartItem', index);
-			}
+			}	
 		},
 		filters: {
  			upperCase(str) {
@@ -60,14 +62,6 @@
 	.cart__cost
 		font-family: 'Montserrat', sans-serif
 		font-weight: 600
-	.cart__btn-remove
-		border: none
-		border-radius: 50%
-		background-color: #7C7A7A
-		color: #fff
-		width: 25px
-		height: 25px
-		cursor: pointer
 	.cart__total
 		font-family: 'Montserrat', sans-serif
 		font-size: 18px

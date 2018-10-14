@@ -6,25 +6,29 @@
 			class="products__filters">
 			<legend>Цена:</legend>
 			<div class="products__filters-row">
-				<label>
-					от
-					<input type="text" 
-							class="products__filters-cost"
-							v-model="costRange.min">
-				</label>
-				<label>
-					до
-					<input type="text" 
-							class="products__filters-cost"
-							v-model="costRange.value">
-				</label>
-				<input 
-					type="range"
-					class="products__filters-range"
-					:min="costRange.min"
-					:max="costRange.max"
-					step="25"
-					v-model="costRange.value">
+				<div class="products__filters-group">
+					<label>
+						от
+						<input type="text" 
+								class="products__filters-cost"
+								v-model="costRange.min">
+					</label>
+					<label>
+						до
+						<input type="text" 
+								class="products__filters-cost"
+								v-model="costRange.value">
+					</label>
+				</div>
+				<div class="products__filters-group">
+					<input 
+						type="range"
+						class="products__filters-range"
+						:min="costRange.min"
+						:max="costRange.max"
+						step="25"
+						v-model="costRange.value">
+				</div>
 				<input 
 					type="submit" 
 					value="Показать"
@@ -108,7 +112,7 @@
 		border: 1px solid #7C7A7A
 	.products__filters-range
 	  -webkit-appearance: none
-	  width: 35%
+	  width: 100%
 	  &:focus
 	    outline: none
 	  &::-webkit-slider-runnable-track
@@ -226,7 +230,16 @@
 		.product__order-btn
 			font-size: 16px
 			margin-top: 5px
-	@media screen and 	(max-width: 585px)
 		.product
 			width: 50%
+		.products__filters-row
+			flex-direction: column
+			align-items: flex-start
+			margin: 10px 0
+		.products__filters-group
+			margin: 10px 0
+			max-width: 150px
+			width: 100%
+		.products__filters-submit
+			max-width: 150px
 </style>

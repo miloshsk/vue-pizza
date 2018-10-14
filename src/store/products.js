@@ -19,7 +19,7 @@ export default {
 		},
 		sortPizzaByPrice(state, data) {
 			state.sorted = state.products.filter((elem) => {
-				for(let i = 0; i < state.products.length; i++) {
+				for(let item of state.products) {
 					if(elem.cost <= data.max && elem.cost >= data.min) {
 						return elem;
 					}

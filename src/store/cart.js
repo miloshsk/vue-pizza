@@ -4,22 +4,37 @@ export default {
 	},
 	getters: {
 		getCartItems(state) {
-			return state.cart	
+			return state.cart;
 		},
 		getCartTotalCost(state) {
 			let result = 0;
 			for(let item of state.cart) {
-				result += parseInt(item.cost);
+				result += parseInt(item.cost * item.quantity);
 			}
 			return result;
 		}
 	},
 	mutations: {
 		updateCart(state, data) {
-			state.cart.push(data)
+			let result = state.cart.find( (elem) => {
+				return elem.title === data.title;
+			});
+			if(result) {
+				for(let item of state.cart) {
+					if(item.title === data.title) {
+						item.quantity++;
+					}
+				}
+			} else {
+				state.cart.push(data);
+			}
 		},
 		removeCartItem(state, index) {
-			state.cart.splice(index, 1)
+			if(state.cart[index].quantity > 1) {
+				state.cart[index].quantity--;
+			} else {
+				state.cart.splice(index, 1);
+			}
 		}
 	}
 }
