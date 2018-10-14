@@ -17,10 +17,10 @@ export default {
 		updateSorted(state) {
 			state.sorted = state.products;
 		},
-		sortByPrice(state) {
+		sortPizzaByPrice(state, data) {
 			state.sorted = state.products.filter((elem) => {
 				for(let i = 0; i < state.products.length; i++) {
-					if(elem.cost < 500) {
+					if(elem.cost <= data.max && elem.cost >= data.min) {
 						return elem;
 					}
 				}
