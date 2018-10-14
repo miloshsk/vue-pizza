@@ -17,7 +17,7 @@ export default {
 	mutations: {
 		updateCart(state, data) {
 			let result = state.cart.find( (elem) => {
-				return elem.title === data.title;
+				return elem.title === data.title;	
 			});
 			if(result) {
 				for(let item of state.cart) {
