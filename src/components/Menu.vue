@@ -9,13 +9,13 @@
 				<div class="products__filters-group">
 					<label>
 						от
-						<input type="text" 
+						<input type="number" 
 								class="products__filters-cost"
 								v-model="costRange.min">
 					</label>
 					<label>
 						до
-						<input type="text" 
+						<input type="number" 
 								class="products__filters-cost"
 								v-model="costRange.value">
 					</label>
@@ -110,6 +110,10 @@
 		width: 100%
 		padding: 2px
 		border: 1px solid #7C7A7A
+	.products__filters-cost::-webkit-outer-spin-button,
+	.products__filters-cost::-webkit-inner-spin-button
+		-webkit-appearance: none
+		margin: 0
 	.products__filters-range
 	  -webkit-appearance: none
 	  width: 100%
