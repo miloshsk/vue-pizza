@@ -143,42 +143,4 @@
 	.fa-arrow-left
 		color: #7C7A7A
 		transition: 0.3s ease
-	.order-form
-		max-width: 250px 
-		width: 100%
-	.order-form__group
-		display: flex
-		flex-direction: column
-		margin-bottom: 10px
-	.order-form__label
-		font-family: 'Montserrat', sans-serif
-		font-size: 18px
-		margin-bottom: 5px
-	.order-form__input
-		border-radius: 5px
-		border: 2px solid #7C7A7A
-		padding: 3px
-		outline: none
-		&:focus,
-		&:active
-			border-color: #494949
-	.order-form__submit
-		outline: none
-		max-width: 200px
-		width: 100%
-		padding: 5px
-		cursor: pointer
-		background-color: #fff
-		border: 2px solid #7C7A7A
-		font-family: 'Montserrat', sans-serif
-		font-size: 18px
-		color: #494949
-		transition: 0.3s ease
-		&:hover
-			background-color: #494949
-			color: #fff
-			border-color: #494949
-		&:focus,
-		&:active
-			border-color: #494949
 </style>
