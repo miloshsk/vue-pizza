@@ -1,5 +1,5 @@
 <template>
-	<div class="cart__item">
+	<li class="cart__item">
 		<h2 class="cart__title">{{item.title | upperCase}}</h2>
 		<span class="cart__cost">
 			{{item.cost}}
@@ -8,7 +8,7 @@
 		<button @click="removeItemFromCart(index)">-</button>
 		<span>{{item.quantity}}</span>
 		<button @click="addItemToCart(item)">+</button>
-	</div>
+	</li>
 </template>
 
 <script>

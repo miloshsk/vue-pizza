@@ -18,7 +18,7 @@
 					<router-link to="/" tag="a" active-class="active" exact @click.native="toggleMenu">Главная</router-link>
 				</li>
 				<li>
-					<router-link to="/menu" tag="a" active-class="active" @click.native="toggleMenu">Меню</router-link>
+					<router-link to="/products" tag="a" active-class="active" @click.native="toggleMenu">Меню</router-link>
 				</li>
 				<li>
 					<router-link to="/reviews" tag="a" active-class="active" @click.native="toggleMenu">Отзывы</router-link>

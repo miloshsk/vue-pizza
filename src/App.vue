@@ -6,17 +6,16 @@
 </template>
 
 <script>
-import Home from './components/Home.vue';
 import Nav from './components/Nav.vue';
 export default {
   components: {
-    appHome: Home,
     appNav: Nav
   }
 }
 </script>
 
 <style lang="sass">
+  @import url('https://fonts.googleapis.com/css?family=Merriweather|Montserra')
   *
     box-sizing: border-box
   ul

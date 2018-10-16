@@ -14,6 +14,7 @@
 					<app-cart-item 
 						:item="item"
 						:index="index"
+						:key="index"
 						v-for="(item, index) in cartItems">
 					</app-cart-item>
 				</ul>

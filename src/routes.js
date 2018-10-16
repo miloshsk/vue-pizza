@@ -1,7 +1,7 @@
 import VueRouter from 'vue-router';
 import Home from './components/Home.vue';
-import Menu from './components/Menu.vue';
-import Reviews from './components/Reviews.vue';
+import Products from './components/products/Products.vue';
+import Reviews from './components/reviews/Reviews.vue';
 import Cart from './components/cart/Cart.vue';
 
 export default new VueRouter({
@@ -11,8 +11,8 @@ export default new VueRouter({
 			component: Home
 		},
 		{
-			path: '/menu',
-			component: Menu
+			path: '/products',
+			component: Products
 		},
 		{
 			path: '/reviews',
