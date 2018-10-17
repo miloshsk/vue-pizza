@@ -63,12 +63,12 @@
 	.products__filters
 		max-width: 450px
 		width: 100%
-		font-family: 'Montserrat', sans-serif
 	.products__filters-cost
 		max-width: 50px
 		width: 100%
 		padding: 2px
-		border: 1px solid #7C7A7A
+		border: 1px solid #50514F
+		font-family: 'Montserrat', sans-serif
 	.products__filters-cost::-webkit-outer-spin-button,
 	.products__filters-cost::-webkit-inner-spin-button
 		-webkit-appearance: none
@@ -81,12 +81,12 @@
 	  &::-webkit-slider-runnable-track
 	    height: 10px
 	    cursor: pointer
-	    background: #7C7A7A
+	    background: #247BA0
 	    border-radius: 5px
 	  &::-webkit-slider-thumb
 	    height: 19px
 	    width: 50px
-	    border: 2px solid #7C7A7A
+	    border: 2px solid #247BA0
 	    border-radius: 15px
 	    background-color: #fff
 	    cursor: pointer
@@ -95,12 +95,12 @@
 	  &::-moz-range-track
 	    height: 10px
 	    cursor: pointer
-	    background: #7C7A7A
+	    background: #247BA0
 	    border-radius: 5px
 	  &::-moz-range-thumb
 	    height: 19px
 	    width: 50px
-	    border: 2px solid #7C7A7A
+	    border: 2px solid #247BA0
 	    border-radius: 15px
 	    background-color: #fff
 	    cursor: pointer
@@ -109,14 +109,14 @@
 	  &::-ms-track
 	    height: 10px
 	    cursor: pointer
-	    background: #7C7A7A
+	    background: #247BA0
 	    border-radius: 5px
 	  &::-ms-fill-lower
-	    background: #7C7A7A
+	    background: #247BA0
 	  &::-ms-fill-upper
-	    background: #7C7A7A
+	    background: #247BA0
 	  &::-ms-thumb
-	    border: 0px solid #7C7A7A
+	    border: 0px solid #247BA0
 	    height: 19px
 	    width: 50px
 	    border-radius: 14px
@@ -124,19 +124,20 @@
 	    height: 10px
 	  &:focus
 	    &::-ms-fill-lower
-	      background: #7C7A7A
+	      background: #247BA0
 	    &::-ms-fill-upper
-	      background: #7C7A7A
+	      background: #247BA0
 	.products__filters-submit
 		max-width: 120px
 		width: 100%
 		padding: 10px
-		background-color: #7C7A7A
+		background-color: #247BA0
 		color: #fff
 		border: none
 		cursor: pointer
+		transition: 0.3s ease
 		&:hover
-			background-color: #494949
+			background-color: #054F6F
 	.products__filters-row
 		display: flex
 		align-items: center
@@ -149,8 +150,8 @@
 			margin: 10px 0
 		.products__filters-group
 			margin: 10px 0
-			max-width: 150px
+			max-width: 160px
 			width: 100%
 		.products__filters-submit
-			max-width: 150px
+			max-width: 160px
 </style>

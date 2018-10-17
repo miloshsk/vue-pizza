@@ -47,12 +47,11 @@
 		padding: 10px
 		margin-left: 20px
 		border-radius: 5px
-		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3)
+		box-shadow: 0 2px 10px rgba(80,81,79,0.3)
 	.product__title
 		margin: 5px 0
 		font-size: 22px
 		font-weight: 400
-		font-family: 'Merriweather', serif
 	.product__cost
 		font-family: 'Montserrat', sans-serif
 		font-weight: 600
@@ -63,14 +62,20 @@
 		width: 100%	
 		height: auto
 	.product__order-btn
+		font-family: 'Montserrat', sans-serif
 		font-size: 18px
 		margin-top: 10px
 		width: 100%
 		border: none
 		padding: 10px
 		color: #fff
-		background-color: #7C7A7A
+		background-color: #247BA0
 		cursor: pointer
+		transition: 0.3s ease
+		outline: none
+		&:hover,
+		&:focus
+			background-color: #054F6F
 	@media screen and 	(max-width: 1024px)
 		.product 
 			width: 25%

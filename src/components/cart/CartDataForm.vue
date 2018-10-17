@@ -76,6 +76,7 @@
 
 <style lang="sass">
 	.order-form
+		margin-top: 20px
 		max-width: 250px 
 		width: 100%
 	.order-error
@@ -88,16 +89,12 @@
 		margin-bottom: 10px
 	.order-form__label
 		font-family: 'Montserrat', sans-serif
-		font-size: 18px
+		font-size: 16px
 		margin-bottom: 5px
 	.order-form__input
-		border-radius: 5px
-		border: 2px solid #7C7A7A
+		border: 1px solid #000
 		padding: 3px
-		outline: none
-		&:focus,
-		&:active
-			border-color: #494949
+		outline-color: #50514F
 	.order-form__submit
 		outline: none
 		max-width: 200px
@@ -105,10 +102,9 @@
 		padding: 5px
 		cursor: pointer
 		background-color: #fff
-		border: 2px solid #7C7A7A
+		border: 1px solid #000
 		font-family: 'Montserrat', sans-serif
-		font-size: 18px
-		color: #494949
+		font-size: 16px
 		transition: 0.3s ease
 		&:hover
 			background-color: #494949

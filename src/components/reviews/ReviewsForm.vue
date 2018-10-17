@@ -77,7 +77,7 @@
 		font-family: 'Merriweather', serif
 		font-size: 14px
 		resize: none
-		outline-color: blue
+		outline-color: #50514F
 	.review__form-input::placeholder
 		color: #000
 	.review__form-btn
@@ -87,8 +87,13 @@
 		border: 1px solid #000
 		background-color: #fff
 		cursor: pointer
+		transition: 0.3s ease
 		&:disabled
-			border-color: grey
-			color: grey
+			border-color: #F25F5C
+			color: #F25F5C
 			cursor: not-allowed
+		&:hover:enabled,
+		&:focus:enabled
+			background-color: #50514F
+			color: #fff
 </style>

@@ -18,10 +18,15 @@ export default {
   @import url('https://fonts.googleapis.com/css?family=Merriweather|Montserra')
   *
     box-sizing: border-box
+  body
+    font-family: 'Merriweather', serif
   ul
     list-style-type: none
     padding: 0
     margin: 0
+  h1
+    letter-spacing: 1.5px
+    font-size: 36px
   .container
     max-width: 1400px
     width: 100%
