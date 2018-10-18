@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
 		<h1>Пиццерия</h1>
-		<p class="home-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolor eius quam, optio temporibus doloremque reprehenderit dolore. Qui rem, accusamus.</p>
+		<p class="home-text">Добро пожаловать на главную страницу нашей пиццерии. Тут вы можете закзать пиццу и оставить отзыв.</p>
 	</div>
 </template>
 

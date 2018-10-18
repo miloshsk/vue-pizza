@@ -106,7 +106,6 @@
 		padding: 0
 		background-color: inherit
 		border: none
-		outline: none
 		visibility: hidden
 		cursor: pointer
 	.mobile-menu__line

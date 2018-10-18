@@ -8,7 +8,7 @@
 				<span class="order__step-number">{{step}}</span>
 			</li>
 		</ul>
-		<router-link to="/products" tag="a" class="header-menu__link" active-class="header-menu__link-active" exact @click.native="toggleMenu">
+		<router-link to="/products" tag="a" class="header-menu__link" active-class="header-menu__link-active" exact>
 			Вернуться в меню
 		</router-link>
 		<div v-if="currentStep === 1">
