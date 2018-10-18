@@ -8,6 +8,9 @@
 				<span class="order__step-number">{{step}}</span>
 			</li>
 		</ul>
+		<router-link to="/products" tag="a" class="header-menu__link" active-class="header-menu__link-active" exact @click.native="toggleMenu">
+			Вернуться в меню
+		</router-link>
 		<div v-if="currentStep === 1">
 			<div v-if="cartItems.length">
 				<ul>
@@ -71,9 +74,26 @@
 	}
 </script>
 
-<style lang="sass">
-	.order__steps
+<style lang="sass" scoped>
+	.header-menu__link
+		display: none
+		color: #000
+		max-width: 200px
+		width: 100%
+		text-align: center
+		border: 3px solid #000
+		outline: none
+		font-size: 16px
 		margin-bottom: 20px
+		&:hover
+			color: #000
+		&:focus
+			border-color: #F25F5C
+	@media screen and 	(max-width: 585px)
+		.header-menu__link
+			display: inline-block
+	.order__steps
+		margin: 20px 0
 	.order__step-wrapper
 		position: relative
 		display: inline-block

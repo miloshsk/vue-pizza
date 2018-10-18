@@ -1,5 +1,5 @@
 <template>
-	<div class="container">
+		<div class="container">
 		<h1>Меню</h1>
 		<app-product-filter></app-product-filter>
 		<ul class="products__wrapper">

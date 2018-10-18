@@ -1,4 +1,4 @@
-# swapp
+# Vue-pizza
 
 > A Vue.js project
 

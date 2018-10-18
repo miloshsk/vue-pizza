@@ -3,7 +3,7 @@
 		<h2 class="cart__title">{{item.title | upperCase}}</h2>
 		<div class="cart__row">
 			<span class="cart__cost">
-				{{item.cost}}
+				{{calcItemCost}}
 				<font-awesome-icon icon="ruble-sign" />
 			</span>
 			<button 
@@ -32,6 +32,11 @@
  				return str.charAt(0).toUpperCase() + str.slice(1);
  			}
  		},
+ 		computed: {
+ 			calcItemCost() {
+ 				return this.item.cost * this.item.quantity;
+ 			}
+ 		},
  		methods: {
  			addItemToCart(item) {
 				this.$store.commit('updateCart', item);
@@ -50,7 +55,7 @@
 		align-items: center
 	.cart__item
 		margin: 10px 0
-		width: 130px
+		width: 150px
 	.cart__title
 		margin: 0
 		font-size: 22px

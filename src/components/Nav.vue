@@ -146,7 +146,7 @@
 		.header-menu__list
 			flex-direction: column
 		.header-menu__link
-			padding: 5px
+			padding: 15px 10px
 		.page-nav-mobile
 			max-height: 500px
 			visibility: visible	

@@ -31,6 +31,9 @@ export default {
 					return res.json()
 				})
 				.then( data => {
+					data = Object.keys(data).map(function(k) {
+						return data[k];
+					})
 					commit('updateReviews', data)
 				})
 		},
