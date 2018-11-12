@@ -26,7 +26,7 @@
 			</ul>
 		</nav>
 		<div class="cart">
-			<router-link to="/basket" tag="a" class="header-menu__link cart__link" active-class="header-menu__link-active">
+			<router-link to="/cart" tag="a" class="header-menu__link cart__link" active-class="header-menu__link-active">
 				<font-awesome-icon icon="shopping-cart" />
 			</router-link>
 		</div>
