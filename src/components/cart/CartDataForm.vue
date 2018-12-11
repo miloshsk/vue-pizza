@@ -34,7 +34,7 @@
 <script>
 	export default {
 		props: {
-			nextStep: Function
+      currentStep: Number
 		},
 		data() {
 			return {
@@ -67,7 +67,8 @@
 					}
 				}
 				if(!emptyFields) {
-					this.nextStep();
+				  this.$emit('updateCurrentStep', this.currentStep);
+				  this.$store.commit('clearCart');
 				}
 			}
 		}

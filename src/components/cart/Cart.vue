@@ -32,8 +32,7 @@
 			<button @click="prevStep" class="order-btn-back">
 				<font-awesome-icon icon="arrow-left" />
 			</button>
-			<app-cart-dataform
-				:nextStep="nextStep"></app-cart-dataform>
+			<app-cart-dataform :currentStep="currentStep" @updateCurrentStep="nextStep"></app-cart-dataform>
 		</div>
 		<div v-else>
 			<p class="order-done">Заказ принят</p>

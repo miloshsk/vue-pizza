@@ -15,6 +15,9 @@ export default {
 		}
 	},
 	mutations: {
+	  clearCart(state) {
+	    state.cart = [];
+    },
 		updateCart(state, data) {
 			let result = state.cart.find( (elem) => {
 				return elem.title === data.title;	
