@@ -3,16 +3,25 @@
 		<div class="product__item">
 			<img 	
 				class="product__img"
-				:src="product.img" 
+				:src="showImg"
 				alt="pizza">
 			<h2 class="product__title">{{product.title | upperCase}}</h2>
-			<span class="product__cost">
-				{{product.cost}} 
-				<font-awesome-icon icon="ruble-sign" />
+      <div class="size-wrapper">
+        <button
+          :key="key"
+          v-for="(size, key) in product.size"
+          @click="changeKey(key)"
+          class="btn btn-size"
+          :class="{'btn-size-active': key === activeItem}">
+          {{size}}
+        </button>
+      </div>
+      <span class="product__cost">
+				 {{showCost}}<font-awesome-icon icon="ruble-sign" />
 			</span>
-			<button 
+      <button
 				class="product__order-btn"
-				@click="addToCart(product)">
+				@click="addToCart">
 				<font-awesome-icon icon="shopping-cart" />
 				В корзину
 			</button>
@@ -25,11 +34,34 @@
 		props: {
 			product: Object
 		},
+    data() {
+		  return {
+		    activeItem: 0
+      }
+    },
 		methods: {
-			addToCart(product) {
-				this.$store.commit('updateCart', product);
-			}
+			addToCart() {
+			  const current = {
+			    cost: this.product.cost[this.activeItem],
+			    size: this.product.size[this.activeItem],
+          img: this.product.img[this.activeItem],
+          title: this.product.title,
+          quantity: 1
+        };
+				this.$store.commit('updateCart', current);
+			},
+      changeKey(key) {
+			  this.activeItem = key;
+      }
 		},
+    computed: {
+		  showCost() {
+		    return this.product.cost[this.activeItem]
+      },
+      showImg() {
+		    return this.product.img[this.activeItem]
+      }
+    },
 		filters: {
  			upperCase(str) {
  				return str.charAt(0).toUpperCase() + str.slice(1);

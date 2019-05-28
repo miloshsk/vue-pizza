@@ -20,11 +20,11 @@ export default {
     },
 		updateCart(state, data) {
 			let result = state.cart.find( (elem) => {
-				return elem.title === data.title;	
+				return elem.img === data.img;
 			});
 			if(result) {
 				for(let item of state.cart) {
-					if(item.title === data.title) {
+					if(item.img === data.img) {
 						item.quantity++;
 					}
 				}

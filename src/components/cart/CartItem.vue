@@ -1,6 +1,6 @@
 <template>
 	<li class="cart__item">
-		<h2 class="cart__title">{{item.title | upperCase}}</h2>
+		<h2 class="cart__title">{{item.title | upperCase}} <span>{{item.size}}</span></h2>
 		<div class="cart__row">
 			<span class="cart__cost">
 				{{calcItemCost}}

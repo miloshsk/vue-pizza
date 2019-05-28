@@ -1,7 +1,6 @@
 <template>
 		<div class="container">
 		<h1>Меню</h1>
-		<app-product-filter></app-product-filter>
 		<ul class="products__wrapper">
 			<app-product-item 
 				v-for="(product,index) in products"
@@ -14,10 +13,8 @@
 
 <script>
 	import ProductItem from './ProductItem.vue';
-	import ProductFilter from './ProductFilter.vue';
 	export default {
 		components: {
-			appProductFilter: ProductFilter,
 			appProductItem: ProductItem
 		},
 		computed: {
