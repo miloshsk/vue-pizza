@@ -32,18 +32,4 @@ export default {
     width: 100%
     padding: 0 10px
     margin: 0 auto
-  .size-wrapper
-    width: 100%
-    display: flex
-    margin-bottom: 5px
-    .btn-size
-      flex-grow: 1
-      &-active
-        background-color: #054F6F
-        color: #fff
-  .btn
-    font-size: 14px
-    border: none
-    padding: 10px
-    transition: 0.3s ease
 </style>
