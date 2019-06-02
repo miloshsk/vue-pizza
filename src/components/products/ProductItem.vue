@@ -65,9 +65,6 @@
       }
 		},
     computed: {
-      composition() {
-        return
-      },
 		  changeBtnPosition() {
         return { transform: `translateX(${this.activeItem * 100}%)`}
       },

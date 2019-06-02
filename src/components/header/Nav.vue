@@ -5,9 +5,9 @@
 				class="mobile-menu"
 				:class="{'mobile-menu-active': showMenu}"
 				@click="toggleMenu">
-				<div class="mobile-menu__line mobile-menu__line-top"></div>
-				<div class="mobile-menu__line mobile-menu__line-middle"></div>
-				<div class="mobile-menu__line mobile-menu__line-bottom"></div>
+				<span class="mobile-menu__line mobile-menu__line-top"></span>
+				<span class="mobile-menu__line mobile-menu__line-middle"></span>
+				<span class="mobile-menu__line mobile-menu__line-bottom"></span>
 			</button>
 		</div>
 		<nav 
@@ -29,17 +29,26 @@
 			<router-link to="/cart" tag="a" class="header-menu__link cart__link" active-class="header-menu__link-active">
 				<font-awesome-icon icon="shopping-cart" />
 			</router-link>
+      <div class="cart__length" v-if="getLength > 0">
+        {{getLength}}
+      </div>
+    </div>
 		</div>
-	</div>
 </template>
 
 <script>
 	export default {
 		data() {
 			return {
-				showMenu: false
+				showMenu: false,
+        cartItems: null
 			}
 		},
+    computed: {
+      getLength() {
+        return this.$store.getters.getCartItemsLength;
+      }
+    },
 		methods: {
 			toggleMenu() {
 				if(window.innerWidth <= 450) {
@@ -72,6 +81,19 @@
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
+.cart__length
+  width: 25px
+  height: 25px
+  background-color: #fff
+  border-radius: 50%
+  border: 2px solid #F25F5C
+  position: absolute
+  bottom: -5px
+  left: -5px
+  text-align: center
+  line-height: 20px
+  font-size: 14px
+  font-weight: 600
 .page-header
   background-color: #247BA0
 .header-info

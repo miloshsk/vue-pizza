@@ -6,6 +6,13 @@ export default {
 		getCartItems(state) {
 			return state.cart;
 		},
+    getCartItemsLength(state) {
+		  let result = 0;
+		  for(let item of state.cart) {
+		    result += item.quantity;
+      }
+      return result;
+    },
 		getCartTotalCost(state) {
 			let result = 0;
 			for(let item of state.cart) {
