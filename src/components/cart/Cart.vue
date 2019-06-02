@@ -21,7 +21,10 @@
 						v-for="(item, index) in cartItems">
 					</app-cart-item>
 				</ul>
-				<p class="cart__total">Общая сумма: {{result}}</p>
+				<p class="cart__total">Общая сумма:
+          <span v-if="!getDiscount">{{result}}</span>
+          <span v-else>{{resultByDiscount}} со скидкой</span>
+        </p>
 				<button 
 					@click="nextStep"
 					class="cart__btn-order">Заказать</button>
@@ -32,7 +35,7 @@
 			<button @click="prevStep" class="order-btn-back">
 				<font-awesome-icon icon="arrow-left" />
 			</button>
-			<app-cart-dataform :currentStep="currentStep" @updateCurrentStep="nextStep"></app-cart-dataform>
+			<app-cart-dataForm :currentStep="currentStep" @updateCurrentStep="nextStep"></app-cart-dataForm>
 		</div>
 		<div v-else>
 			<p class="order-done">Заказ принят</p>
@@ -46,7 +49,7 @@
 	export default {
 		 components: {
 			appCartItem: CartItem,
-			appCartDataform: CartDataForm
+			appCartDataForm: CartDataForm
 		},
 		data() {
 			return {
@@ -58,9 +61,15 @@
 			cartItems() {
 				return this.$store.getters.getCartItems;
 			},
+      getDiscount() {
+        return this.$store.getters.getDiscount;
+      },
 			result() {
 				return this.$store.getters.getCartTotalCost;
-			}
+			},
+			resultByDiscount() {
+        return this.$store.getters.getCartTotalCost * (1 - 10/100);
+      }
 		},
 		methods: {
 			prevStep() {

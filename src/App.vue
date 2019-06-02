@@ -35,7 +35,6 @@ export default {
   .btn
     font-family: 'Montserrat', sans-serif
     font-size: 18px
-    margin-top: 10px
     border: none
     padding: 10px
     color: #fff

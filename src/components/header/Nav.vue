@@ -96,12 +96,13 @@
   font-weight: 600
 .page-header
   background-color: #247BA0
+  padding: 0 15px
 .header-info
   padding: 10px
   text-align: right
   display: none
 .header-menu
-  margin-bottom: 50px
+  margin-bottom: 25px
   overflow-y: hidden
   transition: 0.5s ease
   transition-delay: 0.5s

@@ -1,7 +1,6 @@
 <template>
 	<div>
 		<div class="header-info">
-			<a href="#">Logo</a>
 			<button 
 				class="mobile-menu"
 				@click="toggleMenu">

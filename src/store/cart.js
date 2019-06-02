@@ -1,11 +1,15 @@
 export default {
 	state: {
-		cart: []
+		cart: [],
+    discount: false
 	},
 	getters: {
 		getCartItems(state) {
 			return state.cart;
 		},
+    getDiscount(state) {
+		  return state.discount;
+    },
     getCartItemsLength(state) {
 		  let result = 0;
 		  for(let item of state.cart) {
@@ -24,6 +28,9 @@ export default {
 	mutations: {
 	  clearCart(state) {
 	    state.cart = [];
+    },
+    updateDiscount(state) {
+	    state.discount = true;
     },
 		updateCart(state, data) {
 			let result = state.cart.find( (elem) => {
