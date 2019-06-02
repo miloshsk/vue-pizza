@@ -16,11 +16,18 @@ export default {
 		},
 		updateSorted(state) {
 			state.sorted = state.products;
-		}
+		},
+    filterProducts(state, data) {
+		  state.sorted = state.products.filter(item => {
+		    return data.value.every(val => {
+		      return item.composition.indexOf(val) >= 0;
+        })
+      });
+    }
 	},
 	actions: {
     loadProducts({commit}) {
-      Vue.http.get('https://api.myjson.com/bins/bbsmv')
+      Vue.http.get('https://api.myjson.com/bins/7255j')
         .then( res => {
           return res.json()
         })

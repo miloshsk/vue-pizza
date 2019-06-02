@@ -1,33 +1,40 @@
 <template>
 	<li class="product">
 		<div class="product__item">
-			<img 	
-				class="product__img"
-				:src="showImg"
-				alt="pizza">
-			<h2 class="product__title">{{product.title | upperCase}}</h2>
-      <div class="size-wrapper">
+      <img
+        class="product__img"
+        :src="showImg"
+        alt="pizza">
+      <h2 class="product__title">{{product.title | upperCase}}</h2>
+      <ul class="composition__list">
+        <li v-for="(item, key) in product.composition">
+          <span>{{item}}</span><span v-if="key + 1 < product.composition.length">,</span>&nbsp
+        </li>
+      </ul>
+      <div class="product-controls">
+        <div class="size-wrapper">
+          <button
+            :key="key"
+            v-for="(size, key) in product.size"
+            @click="changeKey(key)"
+            class="btn-size"
+            >
+            {{size}}
+          </button>
+          <span
+            :style=changeBtnPosition
+            class="size-active">{{product.size[activeItem]}}</span>
+        </div>
+        <span class="product__cost">
+           {{showCost}}<font-awesome-icon icon="ruble-sign" />
+        </span>
         <button
-          :key="key"
-          v-for="(size, key) in product.size"
-          @click="changeKey(key)"
-          class="btn btn-size"
-          >
-          {{size}}
-        </button>
-        <span
-          :style=changeBtnPosition
-          class="size-active">{{product.size[activeItem]}}</span>
-      </div>
-      <span class="product__cost">
-				 {{showCost}}<font-awesome-icon icon="ruble-sign" />
-			</span>
-      <button
-				class="product__order-btn"
+				class="product__order-btn btn"
 				@click="addToCart">
 				<font-awesome-icon icon="shopping-cart" />
 				В корзину
 			</button>
+      </div>
 		</div>
 	</li>
 </template>
@@ -58,6 +65,9 @@
       }
 		},
     computed: {
+      composition() {
+        return
+      },
 		  changeBtnPosition() {
         return { transform: `translateX(${this.activeItem * 100}%)`}
       },
@@ -77,6 +87,11 @@
 </script>
 
 <style lang="sass">
+.composition__list
+  display: flex
+  flex-wrap: wrap
+  font-size: 12px
+  position: absolute
 .size-wrapper
   width: 100%
   display: flex
@@ -111,13 +126,16 @@
     transition: 0.3s ease
 .product
   width: 20%
-  display: inline-block
   margin-bottom: 20px
 .product__item
-  padding: 10px
+  padding: 10px 10px 210px
   margin-left: 20px
-  border-radius: 5px
-  box-shadow: 0 2px 10px rgba(80,81,79,0.3)
+  position: relative
+.product-controls
+  position: absolute
+  bottom: 0
+  left: 0
+  right: 0
 .product__title
   margin: 5px 0
   font-size: 22px
@@ -132,27 +150,14 @@
   width: 100%
   height: auto
 .product__order-btn
-  font-family: 'Montserrat', sans-serif
-  font-size: 18px
-  margin-top: 10px
   width: 100%
-  border: none
-  padding: 10px
-  color: #fff
-  background-color: #247BA0
-  cursor: pointer
-  transition: 0.3s ease
-  outline: none
-  &:hover,
-  &:focus
-    background-color: #054F6F
 @media screen and 	(max-width: 1024px)
   .product
     width: 25%
-@media screen and 	(max-width: 780px)
+@media screen and 	(max-width: 840px)
   .product
     width: 33%
-@media screen and 	(max-width: 585px)
+@media screen and 	(max-width: 640px)
   .product
     width: 50%
   .product__title
@@ -164,4 +169,9 @@
   .product__order-btn
     font-size: 16px
     margin-top: 5px
+@media screen and 	(max-width: 420px)
+  .product-wrapper
+    text-align: center
+  .product
+    width: 80%
 </style>

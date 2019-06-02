@@ -32,4 +32,18 @@ export default {
     width: 100%
     padding: 0 10px
     margin: 0 auto
+  .btn
+    font-family: 'Montserrat', sans-serif
+    font-size: 18px
+    margin-top: 10px
+    border: none
+    padding: 10px
+    color: #fff
+    background-color: #247BA0
+    cursor: pointer
+    transition: 0.3s ease
+    outline: none
+    &:hover,
+    &:focus
+      background-color: #054F6F
 </style>

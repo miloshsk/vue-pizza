@@ -1,6 +1,7 @@
 <template>
 		<div class="container">
 		<h1>Меню</h1>
+    <app-product-filter></app-product-filter>
 		<ul class="products__wrapper">
 			<app-product-item 
 				v-for="(product,index) in products"
@@ -13,9 +14,11 @@
 
 <script>
 	import ProductItem from './ProductItem.vue';
+	import ProductFilter from './ProductFilter.vue';
 	export default {
 		components: {
-			appProductItem: ProductItem
+			appProductItem: ProductItem,
+      appProductFilter: ProductFilter
 		},
 		computed: {
 			products() {
@@ -29,7 +32,11 @@
 </script>
 
 <style lang="sass">
-	.products__wrapper
-		margin-left: -20px
-		margin-top: 20px
+.products__wrapper
+  display: flex
+  flex-wrap: wrap
+  margin-left: -20px
+@media screen and 	(max-width: 420px)
+  .products__wrapper
+    justify-content: center
 </style>
