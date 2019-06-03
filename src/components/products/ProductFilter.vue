@@ -1,6 +1,7 @@
 <template>
-  <form @submit.prevent="showSortedProducts">
-    <h2 class="filter__caption">Показать пиццу в которой содержится: </h2>
+  <form
+    @submit.prevent="showSortedProducts">
+    <p class="filter__text">Показать пиццу в которой содержится: </p>
     <div class="filter__labels">
       <label
         v-for="product in products"
@@ -38,8 +39,9 @@
 </script>
 
 <style lang="sass" scoped>
-.filter__caption
+.filter__text
   font-size: 18px
+  font-weight: 600
 .filter__labels
   margin-bottom: 15px
 .filter__label
@@ -85,4 +87,10 @@
     transform: rotate(45deg)
 .filter__submit
   display: block
+@media screen and 	(max-width: 450px)
+  .filter__labels
+    display: flex
+    justify-content: space-around
+  .filter__submit
+    width: 100%
 </style>

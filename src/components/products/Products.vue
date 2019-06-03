@@ -41,7 +41,7 @@
   display: flex
   flex-wrap: wrap
   margin-left: -20px
-@media screen and 	(max-width: 420px)
+@media screen and 	(max-width: 450px)
   .products__wrapper
     justify-content: center
 </style>

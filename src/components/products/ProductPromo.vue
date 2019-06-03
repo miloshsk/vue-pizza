@@ -33,7 +33,7 @@
     },
     methods: {
       checkCode() {
-        if(this.userCode === this.code) {
+        if(this.userCode.toLowerCase() === this.code) {
           this.$store.commit('updateDiscount');
           this.showAlertSuccess = true;
           setTimeout(() => {

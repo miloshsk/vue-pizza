@@ -166,7 +166,7 @@
   .product__order-btn
     font-size: 16px
     margin-top: 5px
-@media screen and 	(max-width: 420px)
+@media screen and 	(max-width: 450px)
   .product-wrapper
     text-align: center
   .product

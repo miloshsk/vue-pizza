@@ -96,7 +96,7 @@
   font-weight: 600
 .page-header
   background-color: #247BA0
-  padding: 0 15px
+  padding: 0 5px
 .header-info
   padding: 10px
   text-align: right
@@ -125,8 +125,8 @@
   color: #F25F5C
 .mobile-menu
   position: relative
-  width: 30px
-  height: 20px
+  width: 40px
+  height: 40px
   padding: 0
   background-color: inherit
   border: none
@@ -134,25 +134,26 @@
   cursor: pointer
 .mobile-menu__line
   position: absolute
+  left: 0
   width: 100%
   height: 3px
   background-color: #fff
   transition: 0.3s ease
 .mobile-menu__line-top
-  top: 2px
-.mobile-menu__line-middle
   top: 10px
-.mobile-menu__line-bottom
+.mobile-menu__line-middle
   top: 18px
+.mobile-menu__line-bottom
+  top: 26px
 .mobile-menu-active
   .mobile-menu__line-top
-    top: 10px
+    top: 18px
     transform: rotate(45deg)
   .mobile-menu__line-middle
     width: 0
     opacity: 0
   .mobile-menu__line-bottom
-    top: 10px
+    top: 18px
     transform: rotate(-45deg)
 @media screen and 	(max-width: 450px)
   .cart
