@@ -1,18 +1,7 @@
-# Vue-pizza
+Пример работы можно посмотреть тут: [перейти к примеру](hhttps://test-88920.firebaseapp.com/)
+# Установка через консоль
+1. Клонировать репозиторий  ```git clone https://github.com/miloshsk/vue-pizza```
+2. Перейти в созданную директорию ```cd vue-pizza```
+3. Установить зависимости ```npm i```
+4. Запустить ```npm run dev```
 
-> A Vue.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-```
-
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
