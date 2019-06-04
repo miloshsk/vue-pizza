@@ -26,6 +26,8 @@ export default {
     list-style-type: none
     padding: 0
     margin: 0
+  a
+    text-decoration: none
   h1
     letter-spacing: 1.5px
     font-size: 36px

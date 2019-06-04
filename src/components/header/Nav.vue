@@ -16,6 +16,7 @@
 			</ul>
 		</nav>
 		<div class="cart"
+         @click="toggleMenu"
          @mouseleave="show"
          @mouseenter="show">
 			<router-link
@@ -58,11 +59,17 @@
     },
 		methods: {
       show(e) {
-        this.showCart = e.type === 'mouseenter';
+        if(!/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+          this.showCart = e.type === 'mouseenter';
+        }
       },
-			toggleMenu() {
+			toggleMenu(e) {
 				if(window.innerWidth <= 450) {
-          this.$emit('menuToggle', !this.showMenu);
+          if(e.target.closest('.cart')) {
+            this.$emit('menuToggle', false);
+          } else {
+            this.$emit('menuToggle', !this.showMenu);
+          }
 				}
 			}
 		}
