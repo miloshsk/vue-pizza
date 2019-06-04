@@ -13,7 +13,7 @@
 		</router-link>
 		<div v-if="currentStep === 1">
 			<div v-if="cartItems.length">
-				<app-cart-form :cartItems="cartItems"></app-cart-form>
+				<app-cart-form></app-cart-form>
         <button
           @click="nextStep"
           class="cart__btn-order">Заказать</button>

@@ -1,6 +1,6 @@
 <template>
 	<div class="page-header">
-		<div class="header-info">
+		<div class="header__info">
 			<button 
 				class="mobile-menu"
 				:class="{'mobile-menu-active': showMenu}"
@@ -25,23 +25,29 @@
 				</li>
 			</ul>
 		</nav>
-		<div class="cart">
+		<div class="cart" @mouseleave="showCart = false" @mouseenter="showCart = true">
 			<router-link to="/cart" tag="a" class="header-menu__link cart__link" active-class="header-menu__link-active">
 				<font-awesome-icon icon="shopping-cart" />
 			</router-link>
       <div class="cart__length" v-if="getLength > 0">
         {{getLength}}
       </div>
+      <appCartForm v-if="showCart" class="header__cart"></appCartForm>
     </div>
-		</div>
+
+  </div>
 </template>
 
 <script>
-	export default {
+  import CartForm from './../cart/CartForm.vue';
+  export default {
+    components: {
+      appCartForm: CartForm
+    },
 		data() {
 			return {
 				showMenu: false,
-        cartItems: null
+        showCart: false
 			}
 		},
     computed: {
@@ -60,6 +66,17 @@
 </script>
 
 <style lang="sass">
+.header__cart
+  position: fixed
+  top: 75px
+  right: 0
+  width: auto
+  height: auto
+  background-color: #fff
+  border: 3px solid #247BA0
+  border-radius: 25px
+  padding: 5px 55px 5px 25px
+  z-index: 10
 .cart
   position: fixed
   right: 20px
@@ -97,7 +114,7 @@
 .page-header
   background-color: #247BA0
   padding: 0 5px
-.header-info
+.header__info
   padding: 10px
   text-align: right
   display: none

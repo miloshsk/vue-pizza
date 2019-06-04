@@ -22,10 +22,10 @@
     components: {
       appCartItem: CartItem
     },
-    props: {
-		  cartItems: Array
-    },
     computed: {
+      cartItems() {
+        return this.$store.getters.getCartItems;
+      },
       getDiscount() {
         return this.$store.getters.getDiscount;
       },
