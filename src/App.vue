@@ -1,15 +1,17 @@
 <template>
   <div id="app">
-    <app-nav></app-nav>
+    <app-header></app-header>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 import Nav from './components/header/Nav.vue';
+import Header from './components/header/Header.vue';
 export default {
   components: {
-    appNav: Nav
+    appNav: Nav,
+    appHeader: Header
   }
 }
 </script>
@@ -45,4 +47,14 @@ export default {
     &:hover,
     &:focus
       background-color: #054F6F
+  .fade-enter-active
+    transition: all .5s ease
+  .fade-enter
+    transform: translateY(-20px)
+    opacity: 0
+  .fade-leave
+    opacity: 1
+  .fade-leave-to
+    transition: all .5s ease
+    opacity: 0
 </style>

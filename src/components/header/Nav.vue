@@ -1,40 +1,37 @@
 <template>
-	<div class="page-header">
-		<div class="header__info">
-			<button 
-				class="mobile-menu"
-				:class="{'mobile-menu-active': showMenu}"
-				@click="toggleMenu">
-				<span class="mobile-menu__line mobile-menu__line-top"></span>
-				<span class="mobile-menu__line mobile-menu__line-middle"></span>
-				<span class="mobile-menu__line mobile-menu__line-bottom"></span>
-			</button>
-		</div>
+	<div>
 		<nav 
 			class="header-menu"
 			:class="{'page-nav-mobile': showMenu}">
 			<ul class="header-menu__list">
-				<li>
-					<router-link to="/" tag="a" class="header-menu__link" active-class="header-menu__link-active" exact @click.native="toggleMenu">Главная</router-link>
-				</li>
-				<li>
-					<router-link to="/products" tag="a" class="header-menu__link" active-class="header-menu__link-active" @click.native="toggleMenu">Меню</router-link>
-				</li>
-				<li>
-					<router-link to="/reviews" tag="a" class="header-menu__link" active-class="header-menu__link-active" @click.native="toggleMenu">Отзывы</router-link>
-				</li>
+        <li v-for="(link, key) in links">
+          <router-link
+            :to="link"
+            tag="a"
+            class="header-menu__link"
+            active-class="header-menu__link-active"
+            exact
+            @click.native="toggleMenu">{{linkTitles[key]}}</router-link>
+        </li>
 			</ul>
 		</nav>
-		<div class="cart" @mouseleave="showCart = false" @mouseenter="showCart = true">
-			<router-link to="/cart" tag="a" class="header-menu__link cart__link" active-class="header-menu__link-active">
+		<div class="cart"
+         @mouseleave="show"
+         @mouseenter="show">
+			<router-link
+        to="/cart"
+        tag="a"
+        class="header-menu__link cart__link"
+        active-class="header-menu__link-active">
 				<font-awesome-icon icon="shopping-cart" />
 			</router-link>
       <div class="cart__length" v-if="getLength > 0">
         {{getLength}}
       </div>
-      <appCartForm v-if="showCart" class="header__cart"></appCartForm>
+      <transition name="fade">
+        <appCartForm v-if="showCart" class="header__cart"></appCartForm>
+      </transition>
     </div>
-
   </div>
 </template>
 
@@ -44,9 +41,13 @@
     components: {
       appCartForm: CartForm
     },
+    props: {
+      showMenu: Boolean
+    },
 		data() {
 			return {
-				showMenu: false,
+        links: ['/','products','reviews'],
+        linkTitles: ['Главная','Меню', 'Отзывы'],
         showCart: false
 			}
 		},
@@ -56,25 +57,27 @@
       }
     },
 		methods: {
+      show(e) {
+        this.showCart = e.type === 'mouseenter';
+      },
 			toggleMenu() {
 				if(window.innerWidth <= 450) {
-					this.showMenu = !this.showMenu
+          this.$emit('menuToggle', !this.showMenu);
 				}
 			}
 		}
 	}
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 .header__cart
   position: fixed
-  top: 75px
-  right: 0
+  top: 70px
+  right: 10px
   width: auto
   height: auto
   background-color: #fff
   border: 3px solid #247BA0
-  border-radius: 25px
   padding: 5px 55px 5px 25px
   z-index: 10
 .cart
@@ -111,13 +114,7 @@
   line-height: 20px
   font-size: 14px
   font-weight: 600
-.page-header
-  background-color: #247BA0
-  padding: 0 5px
-.header__info
-  padding: 10px
-  text-align: right
-  display: none
+  z-index: 11
 .header-menu
   margin-bottom: 25px
   overflow-y: hidden
@@ -140,50 +137,15 @@
     color: #F25F5C
 .header-menu__link-active:not(.cart__link)
   color: #F25F5C
-.mobile-menu
-  position: relative
-  width: 40px
-  height: 40px
-  padding: 0
-  background-color: inherit
-  border: none
-  visibility: hidden
-  cursor: pointer
-.mobile-menu__line
-  position: absolute
-  left: 0
-  width: 100%
-  height: 3px
-  background-color: #fff
-  transition: 0.3s ease
-.mobile-menu__line-top
-  top: 10px
-.mobile-menu__line-middle
-  top: 18px
-.mobile-menu__line-bottom
-  top: 26px
-.mobile-menu-active
-  .mobile-menu__line-top
-    top: 18px
-    transform: rotate(45deg)
-  .mobile-menu__line-middle
-    width: 0
-    opacity: 0
-  .mobile-menu__line-bottom
-    top: 18px
-    transform: rotate(-45deg)
 @media screen and 	(max-width: 450px)
   .cart
     top: auto
     bottom: 20px
-  .header-info
-    display: block
   .header-menu
+    padding-top: 60px
     margin: 0
     max-height: 0
     visibility: hidden
-  .mobile-menu
-    visibility: visible
   .header-menu__list
     flex-direction: column
   .header-menu__link

@@ -52,16 +52,6 @@
 </script>
 
 <style scoped lang="sass">
-.fade-enter-active
-  transition: all .5s ease
-.fade-enter
-  transform: translateY(-20px)
-  opacity: 0
-.fade-leave
-  opacity: 1
-.fade-leave-to
-  transition: all .5s ease
-  opacity: 0
 .alert
   text-align: center
   max-width: 250px
