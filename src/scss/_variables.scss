@@ -14,7 +14,8 @@ $c-grey: #50514f;
 $fz-min: 12px;
 $fz-xmin: 14px;
 $fz-main: 16px;
-$fz-xmain: 20px;
+$fz-xmain: 18px;
+$fz-xxmain: 20px;
 
 // Font
 $font: (
@@ -24,7 +25,7 @@ $font: (
   ),
   weight: 400,
   size: $fz-main,
-  line-height: 1.4
+  line-height: 1.4,
 );
 // Bpoints
 $breakpoints: (

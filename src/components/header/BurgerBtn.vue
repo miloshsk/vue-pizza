@@ -35,7 +35,7 @@ export default {
   visibility: hidden;
   cursor: pointer;
   right: 15px;
-  top: 10px;
+  top: 15px;
   &__line {
     position: absolute;
     left: 0;
@@ -72,6 +72,7 @@ export default {
 }
 @include media("xs") {
   .burger {
+    top: 12.5px;
     visibility: visible;
   }
 }
