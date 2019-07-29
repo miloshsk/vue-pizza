@@ -113,7 +113,7 @@ export default {
 @include media("xs") {
   .cart {
     top: auto;
-    bottom: 20px;
+    bottom: 40px;
   }
 }
 </style>
