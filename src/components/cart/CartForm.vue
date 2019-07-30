@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul>
+    <ul class="cart">
       <app-cart-item
         :item="item"
         :index="index"

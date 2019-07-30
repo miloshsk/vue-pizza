@@ -1,14 +1,16 @@
 <template>
   <div class="container">
     <h1>Корзина</h1>
-    <ul class="order__steps" v-if="cartItems.length">
+    <ul class="order" v-if="cartItems.length">
       <li
-        v-for="(step, key) in steps"
+        v-for="(step, key) in stepsItems"
         :key="key"
-        class="order__step-wrapper"
+        class="order__step"
         :class="{ 'order__step-current': step <= currentStep }"
       >
-        <span class="order__step-number">{{ step }}</span>
+        <a href="" class="order__link" :class="{ active: currentStep > key }">{{
+          step
+        }}</a>
       </li>
     </ul>
     <router-link
@@ -29,7 +31,7 @@
     </div>
     <div v-else-if="currentStep === 2">
       <button @click="prevStep" class="order-btn-back">
-        <font-awesome-icon icon="arrow-left" />
+        Назад
       </button>
       <app-cart-dataForm
         :currentStep="currentStep"
@@ -52,6 +54,7 @@ export default {
   },
   data() {
     return {
+      stepsItems: ["Товары в корзине", "Оформление заказа", "Заказ принят"],
       steps: [1, 2, 3],
       currentStep: 1
     };
@@ -74,101 +77,41 @@ export default {
 
 <style lang="scss" scoped>
 .header-menu__link {
-	display: none;
-	color: #000;
-	max-width: 200px;
-	width: 100%;
-	text-align: center;
-	border: 3px solid #000;
-	outline: none;
-	font-size: 16px;
-	margin-bottom: 20px;
-	padding: 15px;
-	&:hover {
-		color: #000
-	}
-	&:focus {
-		border-color: #F25F5C
-	}
+  display: none;
+  color: #000;
+  max-width: 200px;
+  width: 100%;
+  text-align: center;
+  border: 3px solid #000;
+  outline: none;
+  font-size: 16px;
+  margin-bottom: 20px;
+  padding: 15px;
+  &:hover {
+    color: #000;
+  }
+  &:focus {
+    border-color: #f25f5c;
+  }
+  @include media("xs") {
+    display: inline-block;
+  }
 }
-
-@media screen and 	(max-width: 585px) {
-	.header-menu__link {
-		display: inline-block
-	}
-}
-
-.order__steps {
-	margin: 20px 0;
-}
-
-.order__step-wrapper {
-	position: relative;
-	display: inline-block;
-	width: 50px;
-	height: 50px;
-	border: 2px solid #70C1B3;
-	color: #70C1B3;
-	border-radius: 50%;
-	text-align: center;
-	font-size: 18px;
-	margin-right: 25px;
-	&:after {
-		content: '';
-		display: block;
-		width: 29px;
-		height: 2px;
-		background-color: #70C1B3;
-		position: absolute;
-		right: -29px;
-		top: 50%;
-	}
-	&:nth-child(3) {
-		margin-right: 0;
-		&:after {
-			content: none
-		}
-	}
-}
-
-.order__step-number {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-.order__step-current {
-	background-color: #70C1B3;
-	color: $white;
-}
-
-.cart__empty {
-	font-size: 18px;
-}
-
-.order-btn-back {
-	background-color: $white;
-	border: 2px solid $c-red-light;
-	width: 50px;
-	height: 50px;
-	cursor: pointer;
-	border-radius: 50%;
-	transition: 0.3s ease;
-	outline: none;
-	&:hover {
-		background-color: #F25F5C;
-	}
-	&:hover .fa-arrow-left {
-		color: #fff;
-	}
-}
-
-.fa-arrow-left {
-	color: #F25F5C;
-	transition: 0.3s ease;
-}
-.order-done {
-	font-size: 18px;
+.order {
+  margin: 20px 0;
+  display: flex;
+  &__step {
+    margin-right: 20px;
+    position: relative;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &__link {
+    color: $c-grey;
+    &.active {
+      color: $c-red-light;
+    }
+  }
 }
 </style>
