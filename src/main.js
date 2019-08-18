@@ -12,11 +12,24 @@ import {
   faShoppingCart,
   faRubleSign,
   faChevronLeft,
-  faChevronRight
+  faChevronRight,
+  faArrowRight,
+  faPizzaSlice,
+  faCheckCircle,
+  faExclamationCircle
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(faShoppingCart, faRubleSign, faChevronLeft, faChevronRight);
+library.add(
+  faShoppingCart,
+  faRubleSign,
+  faChevronLeft,
+  faChevronRight,
+  faPizzaSlice,
+  faArrowRight,
+  faCheckCircle,
+  faExclamationCircle
+);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.config.productionTip = false;
 

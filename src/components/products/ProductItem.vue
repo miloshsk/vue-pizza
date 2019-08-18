@@ -2,7 +2,9 @@
   <li class="product">
     <div class="product__item">
       <div>
-        <img :src="showImg" alt="pizza" class="product__img" />
+        <transition name="fade">
+          <img :src="showImg" alt="pizza" class="product__img" />
+        </transition>
       </div>
       <h2 class="product__title">{{ product.title | upperCase }}</h2>
       <ul class="product__composition">
@@ -14,8 +16,8 @@
       <div class="product__controls">
         <div class="product__size">
           <button
-            :key="key"
             v-for="(size, key) in product.size"
+            :key="key"
             @click="changeKey(key)"
             class="btn-size"
           >
@@ -121,7 +123,8 @@ export default {
     margin-bottom: 5px;
     font-size: 14px;
     position: relative;
-    background-color: $c-blue-light;
+    background-color: transparent;
+    border: 2px solid $c-blue;
     border-radius: 100px;
     .size-active {
       width: 33.333%;
@@ -132,9 +135,9 @@ export default {
       text-align: center;
       line-height: 36px;
       border-radius: 100px;
-      background-color: $c-green;
+      background-color: $c-blue;
       color: $white;
-      border: 1px solid $c-green;
+      border: 1px solid $c-blue;
       transition: 0.3s ease;
       cursor: pointer;
     }

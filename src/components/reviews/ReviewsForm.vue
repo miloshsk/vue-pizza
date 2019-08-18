@@ -1,60 +1,69 @@
 <template>
   <form class="review-form" @submit.prevent="sendReview">
-    <div class="review-form__item">
-      <input
-        v-model="review.userName"
-        type="text"
-        placeholder="Имя"
-        id="review-name"
-        class="review-form__input"
-      />
-    </div>
-    <div class="review-form__item">
-      <textarea
-        v-model="review.reviewText"
-        placeholder="Отзыв"
-        id="review-text"
-        cols="30"
-        rows="3"
-        class="review-form__input"
-      >
-      </textarea>
-    </div>
-    <input type="submit" class="review-form__btn" :disabled="!formReady" />
+    <app-input
+      v-for="item in review"
+      :key="item.name"
+      :field="item"
+      @isValid="isValid"
+      v-model="item.value"
+    ></app-input>
+    <button type="submit" class="btn review-form__btn" :disabled="!formReady">
+      Отправить
+    </button>
   </form>
 </template>
 
 <script>
+import Input from "./Input";
 export default {
+  components: {
+    appInput: Input
+  },
   data() {
     return {
-      review: {
-        userName: "",
-        reviewText: ""
-      }
+      review: [
+        {
+          name: "userName",
+          title: "Имя",
+          value: "",
+          pattern: /^[a-zA-Za-яA-Я ]{4,30}$/,
+          type: "input",
+          isValid: false
+        },
+        {
+          name: "reviewText",
+          title: "Отзыв",
+          value: "",
+          pattern: /^[a-zA-Za-яA-Я ]{4,30}$/,
+          type: "textarea",
+          isValid: false
+        }
+      ]
     };
   },
   methods: {
+    isValid(flag, obj) {
+      for (let i of this.review) {
+        if (i.name === obj.name) {
+          i.isValid = flag;
+        }
+      }
+    },
     sendReview() {
       const review = {
-        userName: this.review.userName,
-        reviewText: this.review.reviewText
+        userName: this.review[0].value,
+        reviewText: this.review[1].value
       };
       this.$store.dispatch("postReview", review).then(() => {
-        this.review.userName = "";
-        this.review.reviewText = "";
+        for (let i of this.review) {
+          i.value = "";
+        }
       });
     }
   },
   computed: {
-    emptyFormFields() {
-      return {
-        name: !this.review.userName,
-        test: !this.review.reviewText
-      };
-    },
     formReady() {
-      return Object.values(this.emptyFormFields).every(n => !n);
+      return this.review.map(x => x.isValid).every(n => n);
     }
   }
 };
@@ -64,38 +73,5 @@ export default {
 .review-form {
   max-width: 250px;
   width: 100%;
-	&__item {
-		margin-bottom: 10px;
-	}
-	&__input {
-		width: 100%;
-		border: 1px solid $black;
-		padding: 5px;
-		font-size: 14px;
-		resize: none;
-		outline-color: $c-grey;
-	}
-	&__input::placeholder {
-		color: $black;
-	}
-	&__btn {
-		max-width: 120px;
-		width: 100%;
-		padding: 5px;
-		border: 1px solid $black;
-		background-color: $white;
-		cursor: pointer;
-		transition: 0.3s ease;
-		&:disabled {
-			color: $c-red-light;
-			border-color: $c-red-light;
-			cursor: not-allowed;
-		}
-		&:hover:enabled,
-		&:focus:enabled {
-			background-color: $c-grey;
-			color: $white;
-		}
-	}
 }
 </style>

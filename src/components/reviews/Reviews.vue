@@ -1,10 +1,10 @@
 <template>
   <div class="reviews">
     <div class="container">
-      <h1>Отзывы</h1>
+      <h1 class="reviews__title">Отзывы</h1>
       <p>Тут вы можете оставить свой отзыв</p>
       <app-reviews-form> </app-reviews-form>
-      <ul>
+      <ul class="reviews__list">
         <li v-for="(item, key) in reviews" :key="key" class="reviews__item">
           <h2>{{ item.userName }}</h2>
           <p>{{ item.reviewText }}</p>

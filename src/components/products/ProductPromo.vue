@@ -4,12 +4,14 @@
       Введите промокд "{{ code }}" чтоб получить скидку 10%
     </p>
     <div class="promo__content">
-      <input
-        class="promo__input"
-        type="text"
-        v-model="userCode"
-        placeholder="Введите промокод"
-      />
+      <label>
+        <input
+          class="promo__input"
+          type="text"
+          v-model="userCode"
+          placeholder="Введите промокод"
+        />
+      </label>
       <button type="submit" class="btn promo__submit">применить</button>
     </div>
     <transition name="fade">
@@ -113,8 +115,8 @@ export default {
     font-size: 14px;
   }
   &__submit {
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }
 </style>
