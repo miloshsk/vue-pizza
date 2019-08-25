@@ -27,11 +27,11 @@
             product.size[activeItem]
           }}</span>
         </div>
-        <span class="product__cost">
+        <div class="product__cost">
           {{ showCost }}<font-awesome-icon icon="ruble-sign" />
-        </span>
+        </div>
         <button class="product__order-btn btn" @click="addToCart">
-          <font-awesome-icon icon="shopping-cart" />
+          <font-awesome-icon icon="shopping-cart"/>
           В корзину
         </button>
       </div>

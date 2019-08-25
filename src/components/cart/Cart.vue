@@ -33,9 +33,9 @@
     <div v-if="currentStep === 0">
       <div v-if="cartItems.length">
         <app-cart-form></app-cart-form>
-        <button @click="nextStep(1)" class="btn btn_order">
+        <button @click="nextStep(1)" class="btn btn_ic">
           Заказать
-          <font-awesome-icon icon="pizza-slice" class="order__icon" />
+          <font-awesome-icon icon="pizza-slice" class="btn__icon" />
         </button>
       </div>
       <p v-else class="cart__empty">Корзина пуста</p>

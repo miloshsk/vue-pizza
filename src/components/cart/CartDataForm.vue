@@ -30,7 +30,17 @@ export default {
           title: "Имя",
           value: "",
           pattern: /^[a-zA-Za-яA-Я ]{4,30}$/,
-          type: "input",
+          class: "input",
+          type: "text",
+          isValid: false
+        },
+        {
+          name: "clientPhone",
+          title: "Телефон",
+          value: "",
+          pattern: /^((\+7|7|8)+([0-9]){10})$/,
+          class: "input",
+          type: "tel",
           isValid: false
         },
         {
@@ -38,7 +48,8 @@ export default {
           title: "Адрес",
           value: "",
           pattern: /^[a-zA-Za-яA-Я ]{4,30}$/,
-          type: "input",
+          class: "input",
+          type: "text",
           isValid: false
         }
       ]

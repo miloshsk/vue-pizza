@@ -7,8 +7,13 @@
       @isValid="isValid"
       v-model="item.value"
     ></app-input>
-    <button type="submit" class="btn review-form__btn" :disabled="!formReady">
+    <button
+      type="submit"
+      class="btn btn_ic review-form__btn"
+      :disabled="!formReady"
+    >
       Отправить
+      <font-awesome-icon icon="comment" class="btn__icon" />
     </button>
   </form>
 </template>
@@ -27,7 +32,8 @@ export default {
           title: "Имя",
           value: "",
           pattern: /^[a-zA-Za-яA-Я ]{4,30}$/,
-          type: "input",
+          type: "text",
+          class: "input",
           isValid: false
         },
         {
@@ -35,7 +41,8 @@ export default {
           title: "Отзыв",
           value: "",
           pattern: /^[a-zA-Za-яA-Я ]{4,30}$/,
-          type: "textarea",
+          type: "text",
+          class: "textarea",
           isValid: false
         }
       ]

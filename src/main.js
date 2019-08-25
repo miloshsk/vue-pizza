@@ -16,7 +16,8 @@ import {
   faArrowRight,
   faPizzaSlice,
   faCheckCircle,
-  faExclamationCircle
+  faExclamationCircle,
+  faComment
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
@@ -28,7 +29,8 @@ library.add(
   faPizzaSlice,
   faArrowRight,
   faCheckCircle,
-  faExclamationCircle
+  faExclamationCircle,
+  faComment
 );
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.config.productionTip = false;

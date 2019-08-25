@@ -2,10 +2,10 @@
   <div class="form-el">
     <label class="form-el__label">
       <input
-        v-if="field.type === 'input'"
+        v-if="field.class === 'input'"
         @focus="isLabelActive = true"
         @blur="isLabelActive = false"
-        type="text"
+        :type="field.type"
         class="form-el__input"
         :value="field.value"
         @input="checkValidValue($event)"
@@ -16,7 +16,7 @@
         v-else
         @focus="isLabelActive = true"
         @blur="isLabelActive = false"
-        type="text"
+        :type="field.type"
         class="form-el__input"
         :value="field.value"
         @input="checkValidValue($event)"

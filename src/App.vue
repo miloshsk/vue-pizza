@@ -15,7 +15,7 @@ export default {
   components: {
     appHeader: Header,
     appFooter: Footer
-  },
+  }
 };
 </script>
 
@@ -88,6 +88,10 @@ h1 {
   &:focus {
     background-color: $c-blue;
     color: $white;
+    .btn__icon {
+      visibility: visible;
+      opacity: 1;
+    }
   }
   &:disabled {
     background-color: $c-red-dark;
@@ -95,26 +99,21 @@ h1 {
     color: $white;
     cursor: not-allowed;
   }
-  &_order {
-    .order__icon {
-      visibility: hidden;
-      opacity: 0;
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+  &__icon {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &_ic {
     &:hover,
     &:focus {
-      .order__icon {
-        visibility: visible;
-        opacity: 1;
-      }
       padding-right: 40px;
     }
   }
 }
-
 .fade-enter-active {
   transition: all 0.5s ease;
 }
