@@ -7,15 +7,18 @@
         :key="key"
         :class="[
           {
-            'order__step-current active': key <= currentStep
+            active: key === currentStep
+          },
+          {
+            disabled: key > lastStep
           },
           'order__step'
         ]"
       >
         <font-awesome-icon icon="arrow-right" class="order__arrow" />
-        <a href="" class="order__link" @click.prevent="toggleStep(key)">{{
-          step
-        }}</a>
+        <a href="" @click.prevent="changeStep(key)" class="order__link">
+          {{ step }}</a
+        >
       </li>
     </ul>
     <router-link
@@ -30,7 +33,7 @@
     <div v-if="currentStep === 0">
       <div v-if="cartItems.length">
         <app-cart-form></app-cart-form>
-        <button @click="nextStep" class="btn btn_order">
+        <button @click="nextStep(1)" class="btn btn_order">
           Заказать
           <font-awesome-icon icon="pizza-slice" class="order__icon" />
         </button>
@@ -40,7 +43,7 @@
     <div v-else-if="currentStep === 1">
       <app-cart-dataForm
         :currentStep="currentStep"
-        @updateCurrentStep="nextStep"
+        @updateStep="nextStep"
       ></app-cart-dataForm>
     </div>
     <div v-else>
@@ -61,6 +64,7 @@ export default {
     return {
       stepsItems: ["Товары в корзине", "Оформление заказа", "Заказ принят"],
       steps: [1, 2, 3],
+      lastStep: 0,
       currentStep: 0
     };
   },
@@ -70,10 +74,12 @@ export default {
     }
   },
   methods: {
-    toggleStep(step) {
-      this.currentStep = step;
+    changeStep(key) {
+      if (key > this.lastStep) return;
+      this.currentStep = key;
     },
-    nextStep() {
+    nextStep(step) {
+      this.lastStep = step;
       this.currentStep++;
     }
   }
@@ -83,17 +89,17 @@ export default {
 <style lang="scss" scoped>
 .header-menu__link {
   display: none;
-  color: #000;
+  color: $black;
   max-width: 200px;
   width: 100%;
   text-align: center;
-  border: 3px solid #000;
+  border: 3px solid $black;
   outline: none;
   font-size: 16px;
   margin-bottom: 20px;
   padding: 15px;
   &:hover {
-    color: #000;
+    color: $black;
   }
   &:focus {
     border-color: $c-red-light;
@@ -108,6 +114,19 @@ export default {
   &__step {
     margin-right: 40px;
     position: relative;
+    &.disabled {
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 1px;
+        background-color: $c-red-dark;
+      }
+    }
     .order__link {
       color: $c-grey;
       transition: 0.3s ease;
@@ -120,12 +139,6 @@ export default {
     }
     &.active {
       color: $c-red-light;
-      &:hover {
-        color: $c-red-dark;
-        .order__link {
-          color: $c-red-dark;
-        }
-      }
       .order__link {
         color: $c-red-light;
       }

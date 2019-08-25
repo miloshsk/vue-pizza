@@ -1,5 +1,5 @@
 <template>
-  <nav class="header-menu" :class="{ 'page-nav-mobile': showMenu }">
+  <nav class="header-menu">
     <ul class="header-menu__list">
       <li v-for="(link, key) in links" class="header-menu__el" :key="key">
         <router-link
@@ -28,13 +28,9 @@ export default {
     };
   },
   methods: {
-    toggleMenu(e) {
-      if (window.innerWidth <= 450) {
-        if (e.target.closest(".cart")) {
-          this.$emit("menuToggle", false);
-        } else {
-          this.$emit("menuToggle", !this.showMenu);
-        }
+    toggleMenu() {
+      if (window.innerWidth < 768) {
+        this.$emit("menuToggle");
       }
     }
   }
@@ -44,10 +40,9 @@ export default {
 <style lang="scss" scoped>
 .header-menu {
   height: 100%;
-  margin-bottom: 25px;
   overflow-y: hidden;
-  transition: 0.5s ease;
-  transition-delay: 0.5s;
+  transition: 0.3s ease;
+  z-index: 100;
   &__el {
     padding: 10px;
   }
@@ -74,20 +69,27 @@ export default {
 }
 @include media("xs") {
   .header-menu {
-    padding-top: 60px;
-    margin: 0;
-    max-height: 0;
-    visibility: hidden;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 20px;
+    width: 70%;
+    background-color: $c-blue-dark;
+    transform: translateX(100%);
     &__list {
       flex-direction: column;
+      justify-content: center;
     }
     &__el {
       padding: 15px 10px;
     }
   }
-  .page-nav-mobile {
-    max-height: 500px;
-    visibility: visible;
-  }
 }
 </style>
+
+
+
+
+
+}

@@ -53,7 +53,7 @@ export default {
       }
     },
     makeOrder() {
-      this.$emit("updateCurrentStep", this.currentStep);
+      this.$emit("updateStep", this.currentStep);
       this.$store.commit("clearCart");
     }
   },

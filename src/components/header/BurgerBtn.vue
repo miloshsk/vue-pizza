@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     toggleMenu() {
-      this.$emit("menuToggle", !this.showMenu);
+      this.$emit("menuToggle");
     }
   }
 };
@@ -30,12 +30,13 @@ export default {
   width: 40px;
   height: 40px;
   padding: 0;
-  background-color: inherit;
+  background-color: transparent;
   border: none;
   visibility: hidden;
   cursor: pointer;
   right: 15px;
   top: 15px;
+  z-index: 101;
   &__line {
     position: absolute;
     left: 0;

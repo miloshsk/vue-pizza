@@ -4,14 +4,12 @@
       Введите промокд "{{ code }}" чтоб получить скидку 10%
     </p>
     <div class="promo__content">
-      <label>
-        <input
-          class="promo__input"
-          type="text"
-          v-model="userCode"
-          placeholder="Введите промокод"
-        />
-      </label>
+      <input
+        class="promo__input"
+        type="text"
+        v-model="userCode"
+        placeholder="Введите промокод"
+      />
       <button type="submit" class="btn promo__submit">применить</button>
     </div>
     <transition name="fade">
